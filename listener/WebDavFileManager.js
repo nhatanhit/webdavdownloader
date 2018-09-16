@@ -1,5 +1,5 @@
-function WebDavFileManager(fileArrays) {
-    this.fileArrays = fileArrays;
+function WebDavFileManager() {
+    this.fileArrays = [];
 };
 WebDavFileManager.prototype.readDirInfo = function(fileListInfo)  {
     //change info last modification time , from string to Date
@@ -7,9 +7,13 @@ WebDavFileManager.prototype.readDirInfo = function(fileListInfo)  {
         var fileInfo = fileListInfo[i];
         var parsedDate = Date.parse(fileInfo.lastmod);
         fileInfo.timeStamp = parsedDate;
-        this.fileArrays[i] = fileInfo;
+        
+        //this.fileArrays.push(fileInfo);
     }
-};
+}
+WebDavFileManager.prototype.returnFileArray = function() {
+    return this.fileArrays;
+}
 module.exports = WebDavFileManager;
 
  
