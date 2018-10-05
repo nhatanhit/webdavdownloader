@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "sequelize": "^4.39.0",
     "webdav": "^1.5.3"
   }
 }
