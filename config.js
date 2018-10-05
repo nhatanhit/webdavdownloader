@@ -2,9 +2,9 @@ var config = {};
 config.webdav={};
 config.filemanager={};
 
-config.webdav.host="https://demo-apacestore-pandora.demandware.net/on/demandware.servlet/webdav/Sites/Logs";
-config.webdav.username="phong.nguyen";
-config.webdav.password="Demandware@2345678901@#";
+config.webdav.host="";
+config.webdav.username="";
+config.webdav.password="";
 config.filemanager.host="localhost";
 config.filemanager.db="log_record";
 config.filemanager.username="admin";
