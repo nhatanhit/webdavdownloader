@@ -1,5 +1,5 @@
-const Sequelize = require('sequelize');
 var config = require("../config");
+var RecordList = require("../model/record_list");
 function WebDavFileManager() {
     this.fileArrays = [];
 };
@@ -13,19 +13,10 @@ WebDavFileManager.prototype.readDirInfo = function(fileListInfo)  {
         this.fileArrays.push(fileInfo);
     }
     
+    
 }
 WebDavFileManager.prototype.saveIntoFileManager = function() {
-    const sequelize = new Sequelize(config.filemanager.db, config.filemanager.username, config.filemanager.password, {
-        host: config.filemanager.host,
-        dialect: config.filemanager.db_type,
-        operatorsAliases: false,
-        pool: {
-          max: 5,
-          min: 0,
-          acquire: 30000,
-          idle: 10000
-        }
-    });
+    RecordList.bulkCreate(this.fileArrays,true);
 }
 module.exports = WebDavFileManager;
 
